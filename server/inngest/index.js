@@ -119,7 +119,7 @@ const syncWorkspaceUpdation = inngest.createFunction(
 
 const syncWorkspaceDeletion = inngest.createFunction(
     {id:'update-workspace-from-clerk'},
-    {event:'clerk/organization.updated'},
+    {event:'clerk/organization.deleted'},
     async({event})=>{
         const {data} = event
         await prisma.workspace.delete({
