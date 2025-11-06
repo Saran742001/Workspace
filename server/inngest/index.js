@@ -29,7 +29,7 @@ const syncUserCreation = inngest.createFunction({
 // inngest function to delete user data from the database
 
 const syncUserDeletion = inngest.createFunction({
-    id:'delet-user-from-clerk'},
+    id:'delete-user-from-clerk'},
     {event:'clerk/user.deleted'},
     async ({event})=>{
         const {data} = event
@@ -118,7 +118,7 @@ const syncWorkspaceUpdation = inngest.createFunction(
 
 
 const syncWorkspaceDeletion = inngest.createFunction(
-    {id:'update-workspace-from-clerk'},
+    {id:'delete-workspace-from-clerk'},
     {event:'clerk/organization.deleted'},
     async({event})=>{
         const {data} = event
@@ -136,7 +136,7 @@ const syncWorkspaceDeletion = inngest.createFunction(
 
 
 const syncWorkspaceMemberCreation = inngest.createFunction(
-    {id:'update-workspace-from-clerk'},
+    {id:'update-workspace-with-clerk'},
     {event:'clerk/organizationInvitation.accepted'},
     async({event})=>{
         const {data} = event
@@ -162,4 +162,4 @@ export const functions = [syncUserCreation,
     syncWorkspaceCreation,
     syncWorkspaceUpdation,
     syncWorkspaceDeletion,
-    syncWorkspaceCreation];
+    syncWorkspaceMemberCreation];
