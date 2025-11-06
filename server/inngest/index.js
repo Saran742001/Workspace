@@ -95,7 +95,7 @@ const syncWorkspaceCreation = inngest.createFunction({id:'sync-workspace-from-cl
 
 // inngest function to update workspace in the database
 
-const synWorkspaceUpdation = inngest.createFunction(
+const syncWorkspaceUpdation = inngest.createFunction(
     {id:'update-workspace-from-clerk'},
     {event:'clerk/organization.updated'},
     async({event})=>{
@@ -114,11 +114,10 @@ const synWorkspaceUpdation = inngest.createFunction(
 
 
 
-
 // inngest function to delete workspace from the database
 
 
-const synWorkspaceDeletion = inngest.createFunction(
+const syncWorkspaceDeletion = inngest.createFunction(
     {id:'update-workspace-from-clerk'},
     {event:'clerk/organization.updated'},
     async({event})=>{
@@ -136,7 +135,7 @@ const synWorkspaceDeletion = inngest.createFunction(
 // inngest function to save workspace member data to the database
 
 
-const synWorkspaceMemberCreation = inngest.createFunction(
+const syncWorkspaceMemberCreation = inngest.createFunction(
     {id:'update-workspace-from-clerk'},
     {event:'clerk/organizationInvitation.accepted'},
     async({event})=>{
@@ -161,6 +160,6 @@ export const functions = [syncUserCreation,
     syncUserDeletion,
     syncUserUpdation,
     syncWorkspaceCreation,
-    synWorkspaceUpdation,
-    synWorkspaceDeletion,
-    synWorkspaceMemberCreation];
+    syncWorkspaceUpdation,
+    syncWorkspaceDeletion,
+    syncWorkspaceCreation];
